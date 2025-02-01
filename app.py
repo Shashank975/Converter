@@ -1,9 +1,5 @@
 from flask import Flask, send_from_directory
-import sys
 import os
-
-# Prevent Python from writing .pyc files
-sys.dont_write_bytecode = True
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -17,7 +13,7 @@ import model.model
 def hello():
     return 'Hello, World!'
 
-# Serve other static files (CSS, JS, Images)
+
 
 
 # if __name__ == "__main__":
