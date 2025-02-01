@@ -37,7 +37,7 @@ class Uploading():
         pix.save(output_filename)
         return {"Message": f"File converted and saved as: {output_filename}"}
 
-        
+
 
 
 
