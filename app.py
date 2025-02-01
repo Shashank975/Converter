@@ -24,7 +24,7 @@ import os
 
 # Example route
 @app.route('/hello')
-def home():
+def hello():
     return 'Hello, World!'
 
 @app.route('/')
