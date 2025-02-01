@@ -19,13 +19,8 @@ class Uploading():
         if not os.path.exists(self.download_folder):
             os.makedirs(self.download_folder)
 
-    # def upload(self,file):
 
-    #     filename  = os.path.join(self.upload_folder,file.filename)
-    #     file.save(filename)
-    #     return {"Message" : f"File uploaded successfully{filename}"}
-    
-    
+
     def Convert(self,file):
         
         # Load the PDF

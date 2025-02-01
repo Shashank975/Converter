@@ -8,21 +8,6 @@ import os
 #Here You will calling the Function 
 obj = Uploading()
 
-@app.route("/api/upload", methods=["Post"])
-def upload():
-    if 'file' not in request.files :
-        return {"message": "No file found"}, 400
-
-    file = request.files['file']
-
-    if file.filename == "":
-        return {"message": "No file selected"}, 400
-
-    result = obj.Convert(file)
-
-    return {"message": result}
-
-
 
 @app.route("/api/covert", methods=["POST"])
 def convertingApi():
