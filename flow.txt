@@ -1,0 +1,33 @@
+The Workflow of the API:
+
+
+🧑‍💻 Client (Upload Request)
+Action: The client (user or application) sends a POST request with a file attached to the server.
+Trigger: This triggers an HTTP request to your Flask application at the /upload route.
+
+
+🏠 Flask App (app.py)
+Action: Flask, acting as the entry point to the application, listens for incoming requests. When a request is received, it checks which route to forward the request to.
+Function Call: The @app.route('/upload') decorator directs the request to the correct function. In this case, it calls the handle_upload() function, which is responsible for passing the request further to the Controller.
+
+
+
+📋 Controller (controller.py)
+Action: The upload_file() function in the controller receives the request.
+It checks whether the file is included in the request (if 'file' not in request.files).
+If valid, it passes the file to the Model class (Uploading().file_upload()).
+Function Call: After verifying the file, the Controller hands off the request to the Model for actual file processing.
+
+
+⚙️ Model (model.py)
+Action: The file_upload() method in the Model processes the file:
+It checks if the uploads/ folder exists; if not, it creates the folder.
+It saves the uploaded file in the uploads/ folder.
+The method returns a success message to the Controller indicating that the file has been successfully uploaded.
+Function Call: After processing, the Model returns the result to the Controller.
+
+
+
+📤 Controller (Back to Client)
+Action: The Controller receives the success message from the Model.
+Function Call: The Controller sends a response back to the client, confirming that the file has been uploaded successfully.
