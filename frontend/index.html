@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF File Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .response {
+            margin-top: 20px;
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Convert Your PDF</h1>
+    <form id="pdfForm" enctype="multipart/form-data">
+        <input type="file" name="pdffile" id="pdffile" required>
+        <br>
+        <button type="submit">Upload and Convert</button>
+    </form>
+    <div id="response" class="response"></div>
+</div>
+
+<script>
+    document.getElementById('pdfForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        var formData = new FormData();
+        var fileInput = document.getElementById('pdffile');
+        formData.append('pdffile', fileInput.files[0]);
+
+        fetch('https://converter-ywug.onrender.com/api/covert', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.Error) {
+                document.getElementById('response').innerHTML = 'Error: ' + data.Error;
+            } else {
+                document.getElementById('response').innerHTML = 'Conversion Successful! Result: ' + JSON.stringify(data);
+            }
+        })
+        .catch(error => {
+            document.getElementById('response').innerHTML = 'Something went wrong. Please try again.';
+        });
+    });
+</script>
+
+</body>
+</html>
