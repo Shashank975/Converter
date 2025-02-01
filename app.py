@@ -26,6 +26,10 @@ import os
 @app.route('/hello')
 def home():
     return 'Hello, World!'
+
+@app.route('/')
+def home():
+    return send_from_directory('frontend', 'index.html')
     
 # if __name__ == "__main__":
 #     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=False)
