@@ -23,9 +23,9 @@ import model.model
 import os
 
 # Example route
-@app.route('/')
+@app.route('/hello')
 def home():
     return 'Hello, World!'
     
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=False)
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=False)
