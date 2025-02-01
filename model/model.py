@@ -9,22 +9,18 @@ import fitz
 class Uploading():
 
     def __init__(self):
-        self.upload_folder = 'uploads'
-        self.download_folder = 'output'
 
-                # Make sure both folders exist
+        self.upload_folder = '/tmp/uploads'
+        self.download_folder = '/tmp/output'
+
+        # Ensure directories exist
         if not os.path.exists(self.upload_folder):
             os.makedirs(self.upload_folder)
 
         if not os.path.exists(self.download_folder):
             os.makedirs(self.download_folder)
 
-    def upload(self,file):
-
-        filename  = os.path.join(self.upload_folder,file.filename)
-        file.save(filename)
-        return {"Message" : f"File uploaded successfully{filename}"}
-    
+   
     
     def Convert(self,file):
         
