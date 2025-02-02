@@ -13,7 +13,9 @@ import model.model
 def hello():
     return 'Hello, World!'
 
-
+@app.route('/')
+def home():
+    return send_from_directory('frontend', 'index.html')
 
 
 # if __name__ == "__main__":
