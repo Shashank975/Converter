@@ -4,12 +4,15 @@ from flask import Flask, request,jsonify
 import sys
 sys.dont_write_bytecode = True
 import os 
+from flask_cors import CORS  # Import CORS
 
+# Enable CORS for all routes
+CORS(app)
 #Here You will calling the Function 
 obj = Uploading()
 
 
-@app.route("/api/covert", methods=["POST"])
+@app.route("/api/convert", methods=["POST"])
 def convertingApi():
     if 'pdffile' not in request.files:
         return jsonify({"Error": "No file part"})

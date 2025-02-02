@@ -68,7 +68,7 @@
         var fileInput = document.getElementById('pdffile');
         formData.append('pdffile', fileInput.files[0]);
 
-        fetch('https://converter-ywug.onrender.com/api/covert', {
+        fetch('https://converter-ywug.onrender.com/api/convert', {
             method: 'POST',
             body: formData,
         })
