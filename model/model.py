@@ -35,7 +35,7 @@ class Uploading():
         # Save the image to the download folder
         output_filename = os.path.join(self.download_folder, f"{os.path.splitext(file.filename)[0]}.png")
         pix.save(output_filename)
-        return {"Message": f"File converted and saved as: {output_filename}"}
+        return {"Message": f"File converted and saved as: {pdf_path}"}
 
 
 
